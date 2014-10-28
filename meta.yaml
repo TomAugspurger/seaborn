@@ -1,0 +1,43 @@
+package:
+    name: seaborn
+    version: 0.4.0
+    # version: {{ environ['GIT_DESCRIBE_TAG'] }}
+
+source:
+    fn: seaborn-0.4.0.tar.gz
+    url: https://pypi.python.org/packages/source/s/seaborn/seaborn-0.4.0.tar.gz
+    md5: b0a37352524c2363f78aa6780b6d246f
+    # git_url: git@github.com:mwaskom/seaborn.git
+
+build:
+    number: 0
+    # number: {{ environ.get('GIT_DESCRIBE_NUMBER', 0) }}
+
+requirements:
+    build:
+        - python
+        - setuptools
+        - numpy
+        - scipy
+        - pandas
+        - matplotlib
+    run:
+        - python
+        - numpy
+        - scipy
+        - matplotlib
+        - pandas
+        - patsy
+        - statsmodels
+
+test:
+
+  imports:
+    - seaborn
+    - seaborn.external
+    - seaborn.tests
+
+about:
+    home: http://web.stanford.edu/~mwaskom/software/seaborn/
+    license: bsd-3
+    summary: 'Seaborn: statistical data visualization'
